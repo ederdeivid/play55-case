@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/hints',
-    '@nuxt/test-utils'
-  ]
+    '@nuxt/test-utils',
+    '@nuxtjs/tailwindcss'
+  ],
+
 })
