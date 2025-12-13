@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  ssr: true,
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/fonts',
