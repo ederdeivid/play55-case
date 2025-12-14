@@ -2,6 +2,10 @@
   "name": "play55-case",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10.9.2 <12"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
