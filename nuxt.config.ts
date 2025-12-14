@@ -13,6 +13,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
 
+  extends: [
+    './layers/dashboard'
+  ],
+
   typescript: {
     strict: true,
     typeCheck: true
