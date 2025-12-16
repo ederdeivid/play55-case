@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/hints',
     '@nuxt/test-utils',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ],
 
   extends: [
@@ -20,5 +21,13 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  fonts: {
+    families: [
+      { name: 'Inter', provider: 'google' }
+    ]
   },
 })

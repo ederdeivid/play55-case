@@ -1,5 +1,12 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div class="h-full w-full min-h-dvh flex flex-1 p-4">
-    <slot />
+  <div class="min-h-screen bg-slate-50">
+    <main>
+      <div class="min-h-screen p-4">
+        <slot />
+      </div>
+    </main>
   </div>
 </template>

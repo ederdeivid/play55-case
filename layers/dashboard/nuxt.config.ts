@@ -2,8 +2,8 @@ export default defineNuxtConfig({
   components: {
     dirs: [
       {
-        path: './components',
-        prefix: 'dash'
+        path: './components/',
+        prefix: 'Dashboard'
       },
     ]
   },
