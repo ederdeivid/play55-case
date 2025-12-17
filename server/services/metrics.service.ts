@@ -1,7 +1,7 @@
 import type { MetricsResponse, TimeSeriesDataPoint } from '../../layers/dashboard/types'
 import type { PeriodFilter } from '../../layers/dashboard/types/filters'
 import { PERIOD_DAYS_MAP } from '../../layers/dashboard/types/filters'
-import { calculateTrend, getPeriodMultiplier } from '../../layers/dashboard/domain/metrics/calculator'
+import { calculateTrend, getPeriodMultiplier } from '../../domain/metrics/calculator'
 import { generateSingleDataPoint } from './metrics/generators'
 import { generateArray } from '../utils/array'
 

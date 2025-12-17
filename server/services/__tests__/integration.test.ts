@@ -1,10 +1,3 @@
-/**
- * Testes de Integração - Cenários Realistas
- *
- * Simula situações reais de uso dos services
- * Testes práticos sem mocks complexos
- */
-
 import { describe, it, expect } from 'vitest'
 import { getMetrics } from '../metrics.service'
 import { getTransactions } from '../transactions.service'

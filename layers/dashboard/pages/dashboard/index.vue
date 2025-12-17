@@ -1,10 +1,23 @@
+<script setup lang="ts">
+const { initFromUrl } = useUrlFilters()
+initFromUrl()
+
+useHead({
+  title: 'Dashboard - Analytics',
+  meta: [
+    { name: 'description', content: 'Dashboard de métricas e analytics da plataforma' },
+  ],
+})
+</script>
+
 <template>
-  <div class="flex flex-1 flex-col gap-4">
-    <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-      <div class="bg-red-500/50 aspect-video rounded-xl" />
-      <div class="bg-red-500/50 aspect-video rounded-xl" />
-      <div class="bg-red-500/50 aspect-video rounded-xl" />
-    </div>
-    <div class="bg-red-500/50 min-h-screen flex-1 rounded-xl md:min-h-min" />
+  <div class="space-y-8">
+    <DashboardHeader />
+
+    <DashboardMetricsGrid />
+
+    <DashboardChartSection />
+
+    <DashboardTransactionsTable />
   </div>
 </template>
