@@ -30,4 +30,15 @@ export default defineNuxtConfig({
       { name: 'Inter', provider: 'google' }
     ]
   },
+
+  nitro: {
+    preset: 'cloudflare-pages',
+    logLevel: 'verbose',
+    output: {
+      dir: 'dist'
+    },
+    experimental: {
+      wasm: false
+    }
+  },
 })
