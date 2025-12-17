@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const period = (query.period as PeriodFilter) || '30d'
 
-  sleep(1000)
+  sleep(500)
 
   return getTransactions(period)
 })
