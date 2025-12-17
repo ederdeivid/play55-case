@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useUrlFilters } from '@/layers/dashboard/composables/useUrlFilters'
-
 const { initFromUrl } = useUrlFilters()
 initFromUrl()
 
@@ -17,5 +15,7 @@ useHead({
     <DashboardHeader />
 
     <DashboardMetricsGrid />
+
+    <DashboardChartSection />
   </div>
 </template>

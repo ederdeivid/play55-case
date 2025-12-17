@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { PERIOD_OPTIONS, type PeriodFilter } from '@/layers/dashboard/types/filters'
-import { useUrlFilters } from '@/layers/dashboard/composables/useUrlFilters'
 
 const { period, setPeriod } = useUrlFilters()
 

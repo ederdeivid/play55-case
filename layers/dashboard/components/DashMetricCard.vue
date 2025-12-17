@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import type { Metric } from '../types'
-import { useFormatters } from '../../../composables/useFormatters'
 import { calculatePercentageChange } from '@/domain/metrics/calculator'
-import MetricCard from '@/components/MetricCard.vue'
 import type { IconName } from '@/components/icons/constants'
 
 interface Props {
