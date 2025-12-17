@@ -50,8 +50,8 @@ function selectProductName(seed: number): string {
   return selectRandomItem(seed, PRODUCT_NAMES)
 }
 
-function createTransaction(params: {
-  id: string
+interface CreateTransactionParams {
+ id: string
   customerName: string
   customerEmail: string
   amount: number
@@ -59,7 +59,9 @@ function createTransaction(params: {
   type: TransactionType
   date: string
   productName: string
-}): Transaction {
+}
+
+function createTransaction(params: CreateTransactionParams): Transaction {
   return {
     id: params.id,
     customerName: params.customerName,

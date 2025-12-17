@@ -1,15 +1,7 @@
-/**
- * Testes para Metrics Service
- *
- * Testa todos os cenários: sucesso, empty state, erros, validações
- * Não faz requisições reais - testes unitários puros
- */
-
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { getMetrics } from '../metrics.service'
 import type { PeriodFilter } from '../../../layers/dashboard/types/filters'
 
-// Mock das dependências
 vi.mock('../../../layers/dashboard/domain/metrics/calculator', () => ({
   calculateTrend: vi.fn((current: number, previous: number) => {
     const change = ((current - previous) / previous) * 100
@@ -76,11 +68,10 @@ describe('Metrics Service', () => {
     it('deve retornar trend calculado para cada métrica', () => {
       const result = getMetrics('30d')
 
-      expect(result.metrics.activeUsers.trend).toHaveProperty('value')
-      expect(result.metrics.activeUsers.trend).toHaveProperty('direction')
-      expect(result.metrics.revenue.trend).toHaveProperty('value')
-      expect(result.metrics.conversions.trend).toHaveProperty('value')
-      expect(result.metrics.growthRate.trend).toHaveProperty('value')
+      expect(['up', 'down', 'neutral']).toContain(result.metrics.activeUsers.trend)
+      expect(['up', 'down', 'neutral']).toContain(result.metrics.revenue.trend)
+      expect(['up', 'down', 'neutral']).toContain(result.metrics.conversions.trend)
+      expect(['up', 'down', 'neutral']).toContain(result.metrics.growthRate.trend)
     })
 
     it('deve retornar chartData com estrutura correta', () => {

@@ -15,5 +15,7 @@ useHead({
 <template>
   <div class="space-y-8">
     <DashboardHeader />
+
+    <DashboardMetricsGrid />
   </div>
 </template>

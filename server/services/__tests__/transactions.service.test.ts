@@ -1,21 +1,10 @@
-/**
- * Testes para Transactions Service
- *
- * Testa todos os cenários: sucesso, empty state, erros, validações
- * Não faz requisições reais - testes unitários puros
- */
-
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { getTransactions } from '../transactions.service'
 
 describe('Transactions Service', () => {
-  beforeEach(() => {
-    // Setup antes de cada teste
-  })
+  beforeEach(() => { })
 
-  afterEach(() => {
-    // Cleanup após cada teste
-  })
+  afterEach(() => { })
 
   describe('getTransactions - Casos de Sucesso', () => {
     it('deve retornar resposta com estrutura correta', () => {
@@ -50,7 +39,7 @@ describe('Transactions Service', () => {
       const result = getTransactions('30d')
 
       expect(result.transactions.length).toBeGreaterThan(0)
-      expect(result.total).toBe(90) // 30 dias * 3 transações por dia
+      expect(result.total).toBe(90)
     })
   })
 
@@ -58,13 +47,13 @@ describe('Transactions Service', () => {
     it('deve gerar menos transações para período 7d', () => {
       const result = getTransactions('7d')
 
-      expect(result.total).toBe(21) // 7 dias * 3 transações por dia
+      expect(result.total).toBe(21)
     })
 
     it('deve gerar mais transações para período 90d', () => {
       const result = getTransactions('90d')
 
-      expect(result.total).toBe(270) // 90 dias * 3 transações por dia
+      expect(result.total).toBe(270)
     })
 
     it('deve usar período padrão 30d quando não especificado', () => {
@@ -99,12 +88,11 @@ describe('Transactions Service', () => {
         (t) => t.status === 'completed'
       ).length
 
-      // Espera-se que ~70% sejam completed
       expect(completedCount).toBeGreaterThan(result.total * 0.6)
     })
 
     it('deve ter distribuição realista de status', () => {
-      const result = getTransactions('90d') // Amostra maior
+      const result = getTransactions('90d')
       const statusCounts = {
         completed: 0,
         pending: 0,
@@ -116,7 +104,6 @@ describe('Transactions Service', () => {
         statusCounts[transaction.status]++
       })
 
-      // Completed deve ser a maioria
       expect(statusCounts.completed).toBeGreaterThan(statusCounts.pending)
       expect(statusCounts.completed).toBeGreaterThan(statusCounts.failed)
       expect(statusCounts.completed).toBeGreaterThan(statusCounts.refunded)
@@ -134,7 +121,7 @@ describe('Transactions Service', () => {
     })
 
     it('deve ter distribuição realista de tipos', () => {
-      const result = getTransactions('90d') // Amostra maior
+      const result = getTransactions('90d')
       const typeCounts = {
         subscription: 0,
         purchase: 0,
@@ -146,7 +133,6 @@ describe('Transactions Service', () => {
         typeCounts[transaction.type]++
       })
 
-      // Subscription e purchase devem ser mais comuns
       expect(typeCounts.subscription).toBeGreaterThan(typeCounts.refund)
       expect(typeCounts.purchase).toBeGreaterThan(typeCounts.refund)
     })
@@ -216,12 +202,12 @@ describe('Transactions Service', () => {
       const result = getTransactions('30d')
       const now = new Date()
       const thirtyOneDaysAgo = new Date()
-      thirtyOneDaysAgo.setDate(now.getDate() - 31) // Margem de 1 dia por causa das horas
+      thirtyOneDaysAgo.setDate(now.getDate() - 31)
 
       result.transactions.forEach((transaction) => {
         const transactionDate = new Date(transaction.date)
-        // As transações devem estar no passado recente
-        expect(transactionDate.getTime()).toBeLessThanOrEqual(now.getTime() + 86400000) // +1 dia de margem
+
+        expect(transactionDate.getTime()).toBeLessThanOrEqual(now.getTime() + 86400000)
         expect(transactionDate.getTime()).toBeGreaterThanOrEqual(
           thirtyOneDaysAgo.getTime()
         )
@@ -308,7 +294,6 @@ describe('Transactions Service', () => {
         parseInt(t.id.replace('txn-', ''))
       )
 
-      // Todos os IDs devem ser números válidos
       idNumbers.forEach((id) => {
         expect(Number.isInteger(id)).toBe(true)
         expect(id).toBeGreaterThan(0)
@@ -324,7 +309,6 @@ describe('Transactions Service', () => {
       expect(result1.total).toBe(result2.total)
       expect(result1.transactions.length).toBe(result2.transactions.length)
 
-      // Comparar primeiros elementos
       expect(result1.transactions[0].id).toBe(result2.transactions[0].id)
       expect(result1.transactions[0].customerName).toBe(
         result2.transactions[0].customerName
@@ -334,7 +318,6 @@ describe('Transactions Service', () => {
     it('deve ter dados determinísticos baseados no período', () => {
       const result = getTransactions('30d')
 
-      // Mesma seed deve gerar os mesmos dados
       expect(result.transactions[0].customerName).toBeTruthy()
       expect(result.transactions[0].amount).toBeGreaterThan(0)
     })
