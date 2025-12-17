@@ -1,75 +1,79 @@
-# Nuxt Minimal Starter
+# Play55 Case - Frontend
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Dashboard de métricas e analytics da plataforma com Nuxt 3, Vue 3 e TypeScript.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## 🚀 Requisitos
 
-```bash
-# npm
-npm install
+Certifique-se de estar utilizando as versões corretas de Node e npm:
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```json
+"engines": {
+  "node": ">=22 <23",
+  "npm": ">=10.9.2 <12"
+}
 ```
 
-## Development Server
+> 💡 **Dica:** Recomenda-se o uso de **nvm** com **nvm use** para gerenciar versões do Node.js de forma simples.
 
-Start the development server on `http://localhost:3000`:
+---
 
-```bash
-# npm
-npm run dev
+## 💻 Comandos Disponíveis
 
-# pnpm
-pnpm dev
+| Comando            | Descrição                               |
+| ------------------ | --------------------------------------- |
+| `npm run dev`      | Inicia o servidor de desenvolvimento    |
+| `npm run build`    | Faz o build da aplicação                |
+| `npm run lint`     | Executa o ESLint para análise de código |
+| `npm run lint:fix` | Corrige automaticamente erros de lint   |
+| `npm run test`     | Executa os testes com Vitest            |
+| `nvm use`          | Instala a versão correta do node        |
 
-# yarn
-yarn dev
+---
 
-# bun
-bun run dev
-```
+## 🌐 Acesso à Aplicação
 
-## Production
+- **Local:** [http://localhost:3000](http://localhost:3000)
 
-Build the application for production:
+---
 
-```bash
-# npm
-npm run build
+## Arquitetura - Nuxt Layers
 
-# pnpm
-pnpm build
+O projeto utiliza **Nuxt Layers** para organizar o código por domínios de negócio, permitindo:
 
-# yarn
-yarn build
+- **Separação clara de responsabilidades**: Cada layer representa um domínio específico (ex: `dashboard`)
+- **Reutilização de código**: Componentes, composables e páginas são isolados por contexto
+- **Escalabilidade**: Facilita a adição de novos domínios sem afetar os existentes
+- **Manutenibilidade**: Código organizado e com baixo acoplamento
+- **Organização**: A pasta de "components", não fica poluída com vários componentes de todas as partes, apenas componentes "globais"
 
-# bun
-bun run build
-```
+### Decisões de Design
 
-Locally preview production build:
+- **Rota de Detalhes da Transação**: Foi implementada uma rota dedicada (`/dashboard/transaction/[id]`) ao clicar em uma transação da tabela. Esta abordagem foi escolhida para demonstrar o sistema de roteamento, mas **poderia facilmente ser substituída por um modal**, dependendo dos requisitos de UX do projeto. Usei apenas porque o trabalho com roteamento era um requisito da vaga
 
-```bash
-# npm
-npm run preview
+---
 
-# pnpm
-pnpm preview
+##  Qualidade de Código
 
-# yarn
-yarn preview
+O projeto segue práticas de código limpo e mantém alta qualidade através de:
 
-# bun
-bun run preview
-```
+### Conventional Commits
+- Commits padronizados seguindo a convenção (feat, fix, chore, etc.) [conventionalcommits.org](https://www.conventionalcommits.org/)
+- Validação automática de mensagens via **git-commit-msg-linter**
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Automação com Husky
+- **Pre-commit hooks**: Executa lint e validações antes de cada commit
+- **Commit-msg hooks**: Garante que mensagens sigam o padrão conventional
+
+### Lint-staged
+- Executa linting apenas nos arquivos modificados
+- Melhora a performance e mantém o código consistente
+
+### Princípios de Clean Code
+- **SRP (Single Responsibility Principle)**: Cada componente/função tem uma única responsabilidade
+- **Composables reutilizáveis**: Lógica de negócio isolada e testável (domain)
+- **Tipagem forte**: TypeScript em todo o projeto para maior segurança
+- **Nomenclatura clara**: Funções e variáveis com nomes descritivos
+
+---
