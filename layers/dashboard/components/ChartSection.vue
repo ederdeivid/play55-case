@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useMetrics } from '@/layers/dashboard/composables/useMetrics'
-
 const { chartData, isLoading, isError, isEmpty, refresh } = useMetrics()
 </script>
 

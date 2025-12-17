@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ChartData } from '@/layers/dashboard/types'
-import { useFormatters } from '~/composables/useFormatters'
 
 interface Props {
   data: ChartData
