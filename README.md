@@ -35,6 +35,7 @@ Certifique-se de estar utilizando as versões corretas de Node e npm:
 ## 🌐 Acesso à Aplicação
 
 - **Local:** [http://localhost:3000](http://localhost:3000)
+- **Online:** [https://play55-case.pages.dev/](https://play55-case.pages.dev/)
 
 ---
 
