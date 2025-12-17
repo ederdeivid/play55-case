@@ -17,5 +17,7 @@ useHead({
     <DashboardMetricsGrid />
 
     <DashboardChartSection />
+
+    <DashboardTransactionsTable />
   </div>
 </template>
