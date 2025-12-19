@@ -39,6 +39,12 @@ Certifique-se de estar utilizando as versões corretas de Node e npm:
 
 ---
 
+O que seriw feito com mais tempo
+
+- **Testes de componentes**: Meu tempo acabou e nao foi possível entregar os testes
+
+---
+
 ## Arquitetura - Nuxt Layers
 
 O projeto utiliza **Nuxt Layers** para organizar o código por domínios de negócio, permitindo:
