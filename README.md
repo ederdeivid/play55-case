@@ -39,7 +39,7 @@ Certifique-se de estar utilizando as versões corretas de Node e npm:
 
 ---
 
-O que seriw feito com mais tempo
+## O que seria feito com mais tempo
 
 - **Testes de componentes**: Meu tempo acabou e nao foi possível entregar os testes
 
